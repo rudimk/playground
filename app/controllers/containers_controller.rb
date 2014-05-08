@@ -29,6 +29,7 @@ class ContainersController < ApplicationController
   # POST /containers.json
   def create
     @container = Container.new(container_params)
+    @container.user = current_user
 
     respond_to do |format|
       if @container.save
