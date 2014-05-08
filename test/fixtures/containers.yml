@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  container_id: MyString
+  name: MyString
+  subdomain: MyString
+  port: MyString
+  user_id: 
+
+two:
+  container_id: MyString
+  name: MyString
+  subdomain: MyString
+  port: MyString
+  user_id: 
