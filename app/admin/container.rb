@@ -1,4 +1,5 @@
 ActiveAdmin.register Container do
+  permit_params :container_id, :name, :subdomain, :port
 
   
   # See permitted parameters documentation:
