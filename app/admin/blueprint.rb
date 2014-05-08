@@ -1,4 +1,5 @@
 ActiveAdmin.register Blueprint do
+  permit_params :blueprint_id, :name, :description
 
   
   # See permitted parameters documentation:
