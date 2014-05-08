@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Blueprint:</strong>
+  <%= @blueprint.blueprint_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @blueprint.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @blueprint.description %>
+</p>
+
+<p>
+  <strong>Container:</strong>
+  <%= @blueprint.container %>
+</p>
+
+<%= link_to 'Edit', edit_blueprint_path(@blueprint) %> |
+<%= link_to 'Back', blueprints_path %>
