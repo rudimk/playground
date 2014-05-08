@@ -1,24 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Blueprint -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Blueprint %></h1>
+</div>
 
-<p>
-  <strong>Blueprint:</strong>
-  <%= @blueprint.blueprint_id %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:blueprint_id) %></dt>
+      <dd><pre class="prettyprint"><%= @blueprint.blueprint_id %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:name) %></dt>
+      <dd><pre class="prettyprint"><%= @blueprint.name %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @blueprint.description %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @blueprint.name %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              blueprints_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_blueprint_path(@blueprint), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              blueprint_path(@blueprint),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @blueprint.description %>
-</p>
-
-<p>
-  <strong>Container:</strong>
-  <%= @blueprint.container %>
-</p>
-
-<%= link_to 'Edit', edit_blueprint_path(@blueprint) %> |
-<%= link_to 'Back', blueprints_path %>

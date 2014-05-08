@@ -1,6 +1,5 @@
-<h1>Editing blueprint</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @blueprint %> |
-<%= link_to 'Back', blueprints_path %>
+<%- model_class = Blueprint -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Blueprint %></h1>
+</div>
+<%= render :partial => 'form' %>
