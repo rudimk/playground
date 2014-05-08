@@ -1,35 +1,42 @@
-<h1>Listing containers</h1>
-
-<table>
+<%- model_class = Container -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Container %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Container</th>
-      <th>Name</th>
-      <th>Subdomain</th>
-      <th>Port</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:container_id) %></th>
+      <th><%= model_class.human_attribute_name(:name) %></th>
+      <th><%= model_class.human_attribute_name(:subdomain) %></th>
+      <th><%= model_class.human_attribute_name(:port) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @containers.each do |container| %>
       <tr>
+        <td><%= container.id %></td>
         <td><%= container.container_id %></td>
         <td><%= container.name %></td>
         <td><%= container.subdomain %></td>
         <td><%= container.port %></td>
-        <td><%= container.user %></td>
-        <td><%= link_to 'Show', container %></td>
-        <td><%= link_to 'Edit', edit_container_path(container) %></td>
-        <td><%= link_to 'Destroy', container, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l container.created_at, format: :long %></td>
+        <td>
+          <%= link_to container_path(container), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to container_path(container), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Container', new_container_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_container_path,
+            :class => 'btn btn-primary' %>
