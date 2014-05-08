@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Container:</strong>
+  <%= @container.container_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @container.name %>
+</p>
+
+<p>
+  <strong>Subdomain:</strong>
+  <%= @container.subdomain %>
+</p>
+
+<p>
+  <strong>Port:</strong>
+  <%= @container.port %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @container.user %>
+</p>
+
+<%= link_to 'Edit', edit_container_path(@container) %> |
+<%= link_to 'Back', containers_path %>
